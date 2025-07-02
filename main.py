@@ -21,7 +21,7 @@ def main():
     # Generate HTML and save to file
     if all_articles:
         html_content = format_email(all_articles)
-        output_dir = './output'
+        output_dir = './docs'
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, 'index.html')
         with open(output_file, 'w', encoding='utf-8') as f:
