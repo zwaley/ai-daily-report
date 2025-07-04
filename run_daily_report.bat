@@ -1,18 +1,24 @@
  @echo off
-REM 切换到您的项目目录
+REM 锟叫伙拷锟斤拷锟斤拷锟斤拷锟斤拷目目录
 cd /d "C:\Users\78430\ai_daily_web"
+
+REM --- Step 1: Generate Report (with proxy) ---
+echo "Step 1: Generating report with proxy..."
 set http_proxy=http://127.0.0.1:33210
 set https_proxy=http://127.0.0.1:33210
-REM 激活您的Python环境（如果使用了conda或venv）
-REM 例如：call C:\path\to\your\miniconda3\Scripts\activate.bat
-REM 或者：call .venv\Scripts\activate.bat
-REM 运行Python脚本，生成最新的index.html到docs文件夹
-python main.py
-REM 将更改添加到Git
+python main.py --generate-only
+
+REM --- Step 2: Send Email (without proxy) ---
+echo "Step 2: Sending email without proxy..."
+set http_proxy=
+set https_proxy=
+python main.py --send-only
+
+REM --- Step 3: Git Push ---
+echo "Step 3: Pushing updates to GitHub..."
 git add .
-REM 提交更改
 git commit -m "Automated daily report update: %date% %time%"
-REM 推送更改到GitHub
 git push origin main
-REM 保持窗口打开，以便查看输出（可选，调试时有用）
+
+echo "Done."
 REM pause
