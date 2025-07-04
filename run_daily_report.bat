@@ -1,16 +1,18 @@
-@echo off
-REM åˆ‡æ¢åˆ°æ‚¨çš„é¡¹ç›®ç›®å½•
+ @echo off
+REM ÇĞ»»µ½ÄúµÄÏîÄ¿Ä¿Â¼
 cd /d "C:\Users\78430\ai_daily_web"
-REM æ¿€æ´»æ‚¨çš„Pythonç¯å¢ƒï¼ˆå¦‚æœä½¿ç”¨äº†condaæˆ–venvï¼‰
-REM ä¾‹å¦‚ï¼šcall C:\path\to\your\miniconda3\Scripts\activate.bat
-REM æˆ–è€…ï¼šcall .venv\Scripts\activate.bat
-REM è¿è¡ŒPythonè„šæœ¬ï¼Œç”Ÿæˆæœ€æ–°çš„index.htmlåˆ°docsæ–‡ä»¶å¤¹
+set http_proxy=http://127.0.0.1:33210
+set https_proxy=http://127.0.0.1:33210
+REM ¼¤»îÄúµÄPython»·¾³£¨Èç¹ûÊ¹ÓÃÁËconda»òvenv£©
+REM ÀıÈç£ºcall C:\path\to\your\miniconda3\Scripts\activate.bat
+REM »òÕß£ºcall .venv\Scripts\activate.bat
+REM ÔËĞĞPython½Å±¾£¬Éú³É×îĞÂµÄindex.htmlµ½docsÎÄ¼ş¼Ğ
 python main.py
-REM å°†æ›´æ”¹æ·»åŠ åˆ°Git
+REM ½«¸ü¸ÄÌí¼Óµ½Git
 git add .
-REM æäº¤æ›´æ”¹
+REM Ìá½»¸ü¸Ä
 git commit -m "Automated daily report update: %date% %time%"
-REM æ¨é€æ›´æ”¹åˆ°GitHub
+REM ÍÆËÍ¸ü¸Äµ½GitHub
 git push origin main
-REM ä¿æŒçª—å£æ‰“å¼€ï¼Œä»¥ä¾¿æŸ¥çœ‹è¾“å‡ºï¼ˆå¯é€‰ï¼Œè°ƒè¯•æ—¶æœ‰ç”¨ï¼‰
+REM ±£³Ö´°¿Ú´ò¿ª£¬ÒÔ±ã²é¿´Êä³ö£¨¿ÉÑ¡£¬µ÷ÊÔÊ±ÓĞÓÃ£©
 REM pause
