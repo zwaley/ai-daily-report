@@ -39,8 +39,18 @@ def main():
             f.write(html_content)
         print(f"AI Daily Report saved to {output_file}")
 
+        # Temporarily unset proxies before sending email
+        original_http_proxy = os.environ.pop('http_proxy', None)
+        original_https_proxy = os.environ.pop('https_proxy', None)
+        
         # Send email
         send_email(sender_email, receiver_email, smtp_server, smtp_port, smtp_user, smtp_password, subject, html_content)
+
+        # Restore proxies if they were originally set
+        if original_http_proxy:
+            os.environ['http_proxy'] = original_http_proxy
+        if original_https_proxy:
+            os.environ['https_proxy'] = original_https_proxy
     else:
         print("No new articles found in the last 24 hours.")
 
