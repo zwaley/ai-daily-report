@@ -18,7 +18,7 @@ def format_email(articles, title="Daily AI News Report"):
     for article in articles:
         html += f"""
         <div class="card">
-            <h2><a href="{{article['link']}}">{article['title']}</a></h2>
+            <h2><a href="{article['link']}">{article['title']}</a></h2>
             <p>{article['summary']}</p>
             <p style="font-size: 0.8em; color: #666;">来源: {article['source_name']}</p>
         </div>
