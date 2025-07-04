@@ -1,4 +1,5 @@
 import smtplib
+import traceback
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -14,8 +15,11 @@ def send_email(sender_email, receiver_emails, smtp_server, smtp_port, smtp_user,
 
     try:
         with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
+            server.set_debuglevel(1) # Enable debug output
             server.login(smtp_user, smtp_password)
             server.sendmail(sender_email, receiver_emails, msg.as_string())
         print("Email sent successfully!")
     except Exception as e:
         print(f"Error sending email: {e}")
+        print("Full traceback:")
+        traceback.print_exc()

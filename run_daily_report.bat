@@ -1,5 +1,5 @@
- @echo off
-REM �л���������ĿĿ¼
+@echo off
+REM 切换到当前项目目录
 cd /d "C:\Users\78430\ai_daily_web"
 
 REM --- Step 1: Generate Report (with proxy) ---
