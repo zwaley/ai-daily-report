@@ -20,5 +20,7 @@ git add .
 git commit -m "Automated daily report update: %date% %time%"
 git push origin main
 
+git push origin main
+
 echo "Done."
 REM pause
