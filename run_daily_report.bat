@@ -2,6 +2,9 @@
 REM 切换到当前项目目录
 cd /d "C:\Users\78430\ai_daily_web"
 
+set http_proxy=http://127.0.0.1:33210
+set https_proxy=http://127.0.0.1:33210
+
 REM --- Step 1: Generate Report (with proxy) ---
 echo "Step 1: Generating report with proxy..."
 rem set http_proxy=http://127.0.0.1:33210
